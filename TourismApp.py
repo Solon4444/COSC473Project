@@ -20,9 +20,11 @@ class tkinterApp(tk.Tk):
 
                 container.grid_rowconfigure(0, weight = 1)
                 container.grid_columnconfigure(0, weight = 1)
+                
 
                 # initializing frames to an empty array
                 self.frames = {}
+                
 
                 # iterating through a tuple consisting
                 # of the different page layouts
@@ -44,6 +46,7 @@ class tkinterApp(tk.Tk):
         def show_frame(self, cont):
                 frame = self.frames[cont]
                 frame.tkraise()
+                
 
 # first window frame startpage
 
