@@ -4,6 +4,7 @@ from PIL import ImageTk, Image
 import pymysql
 
 LARGEFONT =("Verdana", 20)
+FONT = ("Verdana", 12)
 
 class tkinterApp(tk.Tk):
         
@@ -34,7 +35,7 @@ class tkinterApp(tk.Tk):
                         # for loop
                         self.frames[F] = frame
 
-                        frame.grid(row = 0, column = 0, sticky ="nsew")
+                        frame.grid(row = 20, column = 20, sticky ="nsew")
 
                 self.show_frame(Home)
 
@@ -60,14 +61,14 @@ class Home(tk.Frame):
                 
                 # putting the grid in its place by using
                 # grid
-                label.grid(row = 1, column = 3, padx = 10, pady = 10)
+                label.grid(row = 2, column = 3, padx = 10, pady = 10)
 
                 button1 = ttk.Button(self, text ="Dining",
                 command = lambda : controller.show_frame(Dining))
         
                 # putting the button in its place by
                 # using grid
-                button1.grid(row = 2, column = 1, padx = 10, pady = 10)
+                button1.grid(row = 3, column = 1, padx = 10, pady = 10)
 
                 ## button to show frame 2 with text layout2
                 button2 = ttk.Button(self, text ="Attractions",
@@ -75,7 +76,7 @@ class Home(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button2.grid(row = 3, column = 1, padx = 10, pady = 10)
+                button2.grid(row = 4, column = 1, padx = 10, pady = 10)
 
                 ## button to show frame 3 with text layout2
                 button3 = ttk.Button(self, text ="Lodging",
@@ -83,7 +84,7 @@ class Home(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button3.grid(row = 4, column = 1, padx = 10, pady = 10)
+                button3.grid(row = 5, column = 1, padx = 10, pady = 10)
                 
                 ## button to show frame 4 with text layout2
                 button4 = ttk.Button(self, text ="Itinerary",
@@ -91,14 +92,14 @@ class Home(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button4.grid(row = 5, column = 1, padx = 10, pady = 10)
+                button4.grid(row = 6, column = 1, padx = 10, pady = 10)
 
                 ## button to show frame 4 with text layout2
                 button5 = ttk.Button(self, text ="Quit", command = quit)
-                button5.grid(row = 6, column = 1, padx = 10, pady = 10)
+                button5.grid(row = 7, column = 1, padx = 10, pady = 10)
 
-                label = ttk.Label(self, text ="Recommendations", font = LARGEFONT)
-                label.grid(row = 7, column = 3, padx = 10, pady = 10)
+                label = ttk.Label(self, text ="Recommendations", font = FONT)
+                label.grid(row = 8, column = 3, padx = 10, pady = 10)
 
                 load = Image.open("MainPage.png")
                 render = ImageTk.PhotoImage(load)
@@ -123,7 +124,7 @@ class Dining(tk.Frame):
         
                 # putting the button in its place
                 # by using grid
-                button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+                button1.grid(row = 3, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -132,7 +133,7 @@ class Dining(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+                button2.grid(row = 4, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -141,7 +142,7 @@ class Dining(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+                button3.grid(row = 5, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -150,10 +151,10 @@ class Dining(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+                button4.grid(row = 6, column = 1, padx = 10, pady = 10)
 
                 button5 = ttk.Button(self, text = "Quit", command = quit)
-                button5.grid(row = 5, column = 1, padx = 10, pady = 10)
+                button5.grid(row = 7, column = 1, padx = 10, pady = 10)
                 
                 #Drop Down Menu1
                 my_str_var = tk.StringVar()
@@ -162,7 +163,10 @@ class Dining(tk.Frame):
                     self, textvariable = my_str_var,
                     values= ["Yes", "No"])
 
-                my_combobox.grid(row=1, column=2,padx = 5, pady = 5 )
+                my_combobox.grid(row=2, column=2,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Currently Open")
+                label.grid(row = 1, column = 2, padx = 10, pady = 10)
 
                 #Drop Down Menu 2
 
@@ -172,7 +176,10 @@ class Dining(tk.Frame):
                     self, textvariable = my_str_var2,
                     values= ["9 am - 9 pm", "12 pm - 12 am", "5 pm - 3 am"])
 
-                my_combobox.grid(row=1, column=3,padx = 5, pady = 5 )
+                my_combobox.grid(row=2, column=3,padx = 10, pady = 10 )
+
+                label = ttk.Label(self, text ="Filter by Hours")
+                label.grid(row = 1, column = 3, padx = 10, pady = 10)
 
                                 #Drop Down Menu 3
 
@@ -182,7 +189,10 @@ class Dining(tk.Frame):
                     self, textvariable = my_str_var3,
                     values= ["1 Star", "2 Stars", "3 Stars", "4 Stars","5 Stars"])
 
-                my_combobox.grid(row=1, column=4,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=4,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Rating")
+                label.grid(row = 1, column = 4, padx = 10, pady = 10)
 
                                                 #Drop Down Menu 4
 
@@ -192,7 +202,12 @@ class Dining(tk.Frame):
                     self, textvariable = my_str_var3,
                     values= ["Fine Dining", "Fast Food", "Casual", "Family","Bar"])
 
-                my_combobox.grid(row=1, column=5,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=5,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Type")
+                label.grid(row = 1, column = 5, padx = 10, pady = 10)
+
+                
 
                                                 #Drop Down Menu 5
 
@@ -202,7 +217,15 @@ class Dining(tk.Frame):
                     self, textvariable = my_str_var5,
                     values= ["$", "$$", "$$$", "$$$$","$$$$$"])
 
-                my_combobox.grid(row=1, column=6,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=6,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Price")
+                label.grid(row = 1, column = 6, padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Recommendations", font = FONT)
+                label.grid(row = 8, column = 4, padx = 10, pady = 10)
+
+
 
                 
 
@@ -220,14 +243,14 @@ class Attractions(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+                button1.grid(row = 3, column = 1, padx = 10, pady = 10)
 
                 button2 = ttk.Button(self, text ="Dining",
                                                         command = lambda : controller.show_frame(Dining))
         
                 # putting the button in its place by
                 # using grid
-                button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+                button2.grid(row = 4, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -236,7 +259,7 @@ class Attractions(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+                button3.grid(row = 5, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -245,10 +268,10 @@ class Attractions(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+                button4.grid(row = 6, column = 1, padx = 10, pady = 10)
 
                 button5 = ttk.Button(self, text = "Quit", command = quit)
-                button5.grid(row = 5, column = 1, padx = 10, pady = 10)
+                button5.grid(row = 7, column = 1, padx = 10, pady = 10)
 
                                 #Drop Down Menu1
                 my_str_var = tk.StringVar()
@@ -257,7 +280,10 @@ class Attractions(tk.Frame):
                     self, textvariable = my_str_var,
                     values= ["Yes", "No"])
 
-                my_combobox.grid(row=1, column=2,padx = 5, pady = 5 )
+                my_combobox.grid(row=2, column=2,padx = 10, pady = 10 )
+
+                label = ttk.Label(self, text ="Currently Open")
+                label.grid(row = 1, column = 2, padx = 10, pady = 10)
 
                 #Drop Down Menu 2
 
@@ -267,7 +293,10 @@ class Attractions(tk.Frame):
                     self, textvariable = my_str_var2,
                     values= ["9 am - 9 pm", "12 pm - 12 am", "5 pm - 3 am"])
 
-                my_combobox.grid(row=1, column=3,padx = 5, pady = 5 )
+                my_combobox.grid(row=2, column=3,padx = 10, pady = 10 )
+
+                label = ttk.Label(self, text ="Filter by Hours")
+                label.grid(row = 1, column = 3, padx = 10, pady = 10)
 
                                 #Drop Down Menu 3
 
@@ -277,7 +306,10 @@ class Attractions(tk.Frame):
                     self, textvariable = my_str_var3,
                     values= ["1 Star", "2 Stars", "3 Stars", "4 Stars","5 Stars"])
 
-                my_combobox.grid(row=1, column=4,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=4,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Rating")
+                label.grid(row = 1, column = 4, padx = 10, pady = 10)
 
                                                 #Drop Down Menu 4
 
@@ -287,7 +319,10 @@ class Attractions(tk.Frame):
                     self, textvariable = my_str_var4,
                     values= ["Museum", "Amusement Park", "Outdoor Fun", "Tours"])
 
-                my_combobox.grid(row=1, column=5,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=5,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Type")
+                label.grid(row = 1, column = 5, padx = 10, pady = 10)
 
                                                 #Drop Down Menu 5
 
@@ -297,14 +332,20 @@ class Attractions(tk.Frame):
                     self, textvariable = my_str_var5,
                     values= ["$", "$$", "$$$", "$$$$","$$$$$"])
 
-                my_combobox.grid(row=1, column=6,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=6,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Price")
+                label.grid(row = 1, column = 6, padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Recommendations", font = FONT)
+                label.grid(row = 8, column = 4, padx = 10, pady = 10)
                 
 # third window frame page3
 class Lodging(tk.Frame):
         def __init__(self, parent, controller):
                 tk.Frame.__init__(self, parent)
                 label = ttk.Label(self, text ="Lodging", font = LARGEFONT)
-                label.grid(row = 0, column = 4, padx = 10, pady = 10)
+                label.grid(row = 0, column = 3, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -313,14 +354,14 @@ class Lodging(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+                button1.grid(row = 3, column = 1, padx = 10, pady = 10)
 
                 button2 = ttk.Button(self, text ="Dining",
                                                         command = lambda : controller.show_frame(Dining))
         
                 # putting the button in its place by
                 # using grid
-                button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+                button2.grid(row = 4, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -329,7 +370,7 @@ class Lodging(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+                button3.grid(row = 5, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -338,19 +379,22 @@ class Lodging(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+                button4.grid(row = 6, column = 1, padx = 10, pady = 10)
 
                 button5 = ttk.Button(self, text = "Quit", command = quit)
-                button5.grid(row = 5, column = 1, padx = 10, pady = 10)
+                button5.grid(row = 7, column = 1, padx = 10, pady = 10)
 
-                                #Drop Down Menu1
+                                #Drop Down Menu 1
                 my_str_var = tk.StringVar()
 
                 my_combobox = ttk.Combobox(
                     self, textvariable = my_str_var,
                     values= ["Hotel", "Motel", "Camping"])
 
-                my_combobox.grid(row=1, column=2,padx = 5, pady = 5 )
+                my_combobox.grid(row=2, column=2,padx = 10, pady = 10 )
+
+                label = ttk.Label(self, text ="Filter by Type")
+                label.grid(row = 1, column = 2, padx = 10, pady = 10)
 
 
                                 #Drop Down Menu 2
@@ -361,7 +405,10 @@ class Lodging(tk.Frame):
                     self, textvariable = my_str_var2,
                     values= ["1 Star", "2 Stars", "3 Stars", "4 Stars","5 Stars"])
 
-                my_combobox.grid(row=1, column=4,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=3,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Rating")
+                label.grid(row = 1, column = 3, padx = 10, pady = 10)
 
 
                                                 #Drop Down Menu 3
@@ -372,14 +419,20 @@ class Lodging(tk.Frame):
                     self, textvariable = my_str_var3,
                     values= ["$", "$$", "$$$", "$$$$","$$$$$"])
 
-                my_combobox.grid(row=1, column=6,padx = 5, pady = 5)
+                my_combobox.grid(row=2, column=4,padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Filter by Price")
+                label.grid(row = 1, column = 4, padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Recommendations", font =FONT)
+                label.grid(row = 8, column = 3, padx = 10, pady = 10)
 
 # fourth window frame page4
 class Itinerary(tk.Frame):
         def __init__(self, parent, controller):
                 tk.Frame.__init__(self, parent)
                 label = ttk.Label(self, text ="Itinerary", font = LARGEFONT)
-                label.grid(row = 0, column = 4, padx = 10, pady = 10)
+                label.grid(row = 0, column = 3, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -388,14 +441,14 @@ class Itinerary(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+                button1.grid(row = 3, column = 1, padx = 10, pady = 10)
 
                 button2 = ttk.Button(self, text ="Dining",
                                                         command = lambda : controller.show_frame(Dining))
         
                 # putting the button in its place by
                 # using grid
-                button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+                button2.grid(row = 4, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -404,7 +457,7 @@ class Itinerary(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+                button3.grid(row = 5, column = 1, padx = 10, pady = 10)
 
                 # button to show frame 2 with text
                 # layout2
@@ -413,10 +466,13 @@ class Itinerary(tk.Frame):
         
                 # putting the button in its place by
                 # using grid
-                button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+                button4.grid(row = 6, column = 1, padx = 10, pady = 10)
                 
                 button5 = ttk.Button(self, text = "Quit", command = quit)
-                button5.grid(row = 5, column = 1, padx = 10, pady = 10)
+                button5.grid(row = 7, column = 1, padx = 10, pady = 10)
+
+                label = ttk.Label(self, text ="Recommendations", font = FONT)
+                label.grid(row = 8, column = 3, padx = 10, pady = 10)
 
 # Driver Code
 app = tkinterApp()
