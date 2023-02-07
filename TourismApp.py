@@ -28,7 +28,7 @@ class tkinterApp(tk.Tk):
 
                 # iterating through a tuple consisting
                 # of the different page layouts
-                for F in (Home, Dining, Attractions, Lodging, Itinerary):
+                for F in (Home, Dining, Attractions, Lodging, Itinerary, Itinerary2):
 
                         frame = F(container, self)
 
@@ -476,6 +476,70 @@ class Itinerary(tk.Frame):
 
                 label = ttk.Label(self, text ="Recommendations", font = FONT)
                 label.grid(row = 8, column = 3, padx = 10, pady = 10)
+                
+                # New Button
+                buttonAddTrip = ttk.Button(self, text ="Add New Trip", command = lambda : controller.show_frame(Itinerary2))
+                buttonAddTrip.grid(row = 2, column = 4, padx = 10, pady = 10)
+                
+#Trip Planner Page only accessible from Itinerary page
+class Itinerary2(tk.Frame):
+        def __init__(self, parent, controller):
+                tk.Frame.__init__(self, parent)
+                label = ttk.Label(self, text ="Trip Name", font = LARGEFONT)
+                label.grid(row = 0, column = 12, padx = 10, pady = 10)
+
+                # New Labels
+                labelDate1 = ttk.Label(self, text="From Date")
+                labelDate1.grid(row = 1, column = 11, padx = 10, pady = 10)
+                labelDate2 = ttk.Label(self, text="To Date")
+                labelDate2.grid(row = 1, column = 13, padx = 10, pady = 10)
+
+                # Specific Day
+                labelDay = ttk.Label(self, text="Specific Day")
+                labelDay.grid(row = 2, column = 12, padx = 10, pady = 10)
+
+                # button to show frame 2 with text
+                # layout2
+                button1 = ttk.Button(self, text ="Home",
+                                                        command = lambda : controller.show_frame(Home))
+        
+                # putting the button in its place by
+                # using grid
+                button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+
+                button2 = ttk.Button(self, text ="Dining",
+                                                        command = lambda : controller.show_frame(Dining))
+        
+                # putting the button in its place by
+                # using grid
+                button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+
+                # button to show frame 2 with text
+                # layout2
+                button3 = ttk.Button(self, text ="Attractions",
+                                                        command = lambda : controller.show_frame(Attractions))
+        
+                # putting the button in its place by
+                # using grid
+                button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+
+                # button to show frame 2 with text
+                # layout2
+                button4 = ttk.Button(self, text ="Lodging",
+                                                        command = lambda : controller.show_frame(Lodging))
+        
+                # putting the button in its place by
+                # using grid
+                button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+                
+                button5 = ttk.Button(self, text = "Quit", command = quit)
+                button5.grid(row = 5, column = 1, padx = 10, pady = 10)
+
+                # New Button
+                buttonAddItem = ttk.Button(self, text ="Add New Item")
+                buttonAddItem.grid(row = 3, column = 12, padx = 10, pady = 10)
+                buttonBack = ttk.Button(self, text ="Back", command = lambda : controller.show_frame(Itinerary))
+                buttonBack.grid(row = 7, column = 12, padx = 10, pady = 10)
 
 # Driver Code
 app = tkinterApp()
